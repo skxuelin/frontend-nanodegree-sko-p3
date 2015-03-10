@@ -9,13 +9,13 @@
 "use strict";
 
 //Constants that are used in this app
-var CANVAS_WIDTH = 505;
-var CANVAS_HEIGHT = 606;
-var CELL_HEIGHT = 83;
-var CELL_WIDTH = 101;
-var CELL_PADDING = 19; //the character has some padding so it doesn't touch the grid's line
-var BUG_START_Y = 3 * CELL_HEIGHT; //the Y value where the bug starts to appear
-var WATER_START_Y = 1 * CELL_HEIGHT; //the Y value where the water appears
+var CANVAS_WIDTH = 505,
+    CANVAS_HEIGHT = 606,
+    CELL_HEIGHT = 83,
+    CELL_WIDTH = 101,
+    CELL_PADDING = 19, //the character has some padding so it doesn't touch the grid's line
+    BUG_START_Y = 3 * CELL_HEIGHT, //the Y value where the bug starts to appear
+    WATER_START_Y = 1 * CELL_HEIGHT; //the Y value where the water appears
 
 
 //********ENEMY***************************************************************************************/
@@ -44,9 +44,9 @@ Enemy.prototype.update = function(dt) {
     // multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for all computers.
     
-    var speed = this.speed*dt;
-    var currentX = this.x;
-    var currentY = this.y;
+    var speed = this.speed*dt,
+        currentX = this.x,
+        currentY = this.y;
 
     //when the bug reaches at  the end of the canvas
     //restarts from the beginning of the row
@@ -115,11 +115,11 @@ Player.prototype.render = function() {
  */
 Player.prototype.handleInput = function(key) {
     
-    var currentX = this.x;
-    var currentY = this.y;
-    var newX = currentX;
-    var newY = currentY;
-    var error = false;
+    var currentX = this.x,
+        currentY = this.y,
+        newX = currentX,
+        newY = currentY,
+        error = false;
 
     if (key=='up') {
         newY = currentY-CELL_HEIGHT;
@@ -203,8 +203,8 @@ Goal.prototype.render = function() {
  *
  */
 Goal.prototype.reset = function() {
-    var randomXMultiplier = Math.floor((Math.random() * 5)); //random generator for number between 0 - 5 for the amount of columns
-    var randomYMultiplier = Math.floor((Math.random() * 3)+1); //random generator for number between 1 - 3 for the amount of rows
+    var randomXMultiplier = Math.floor((Math.random() * 5)),//random generator for number between 0 - 5 for the amount of columns
+        randomYMultiplier = Math.floor((Math.random() * 3)+1); //random generator for number between 1 - 3 for the amount of rows
     this.x = randomXMultiplier*CELL_WIDTH; //assign random initial x 
     this.y = (randomYMultiplier*CELL_HEIGHT) - CELL_PADDING; //assign random initial y
 };
