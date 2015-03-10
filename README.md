@@ -5,9 +5,8 @@ This the third project in the Udacity Front End Nano Degree. The objective is to
 
 ## Installation
 
-1. Unzip the zip file P3-SiskaKo-frontend-nanodegree-arcade-game.
-2. In the folder, locate index.html and double click on the file.
-3. This should open the website in the default browser and run the game.
+1. Locate index.html and double click on the file.
+2. This should open the website in the default browser and run the game.
 
 ## Usage / how to play the game
 
