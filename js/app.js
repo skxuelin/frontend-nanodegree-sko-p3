@@ -6,6 +6,8 @@
 * 25-Jan-2015
 **********************************************************************************/
 
+"use strict";
+
 //Constants that are used in this app
 var CANVAS_WIDTH = 505;
 var CANVAS_HEIGHT = 606;
@@ -31,7 +33,7 @@ var Enemy = function(bugNumber) {
     this.speed = bugNumber*150; //so different bug has different speed
     this.x = this.initialX;
     this.y = this.initialY;
-}
+};
 
 /**
  * Update the enemy's position
@@ -62,14 +64,14 @@ Enemy.prototype.update = function(dt) {
         this.y = this.initialY;
       }
     }
-}
+};
 
 /**
  * Draw the enemy on the screen
  */
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 //************PLAYER*************************************************************************************************/
 // Now write your own player class
@@ -87,7 +89,7 @@ var Player = function() {
     this.initialY = (5*CELL_HEIGHT)-CELL_PADDING; //put in the bottom of the screen with some padding
     this.x = this.initialX;
     this.y = this.initialY;
-}
+};
 
 /**
  * Updates player's instance as the screen refreshes
@@ -96,7 +98,7 @@ var Player = function() {
 Player.prototype.update = function(dt) {
     //console.log("calling player update function currentX: " + this.x);
     //at this point there is nothing to update
-}
+};
 
 /**
  * Draw player on the screen
@@ -104,7 +106,7 @@ Player.prototype.update = function(dt) {
  */
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.playerImg), this.x, this.y);
-}
+};
 
 /**
  * Handle the keyboard input of the player
@@ -153,14 +155,14 @@ Player.prototype.handleInput = function(key) {
 
     }
 
-    if (error==true) {
+    if (error===true) {
         this.x = this.initialX;
         this.y = this.initialY;
     } else {
         this.x = newX;
         this.y = newY;
     }
-}
+};
 
 // This listens for key presses and sends the keys to
 // Player.handleInput() method.
@@ -185,7 +187,7 @@ document.addEventListener('keyup', function(e) {
 var Goal = function() {
     this.goalImg = 'images/Star.png';
     this.reset();
-}
+};
 
 /**
  * Draw goal on the screen 
@@ -194,7 +196,7 @@ var Goal = function() {
 Goal.prototype.render = function() {
     //console.log("calling enemy render function x position: "+ this.x + " y position: "+ this.y);
     ctx.drawImage(Resources.get(this.goalImg), this.x, this.y);
-}
+};
 
 /**
  * Restore goal to an initial random position
@@ -205,7 +207,7 @@ Goal.prototype.reset = function() {
     var randomYMultiplier = Math.floor((Math.random() * 3)+1); //random generator for number between 1 - 3 for the amount of rows
     this.x = randomXMultiplier*CELL_WIDTH; //assign random initial x 
     this.y = (randomYMultiplier*CELL_HEIGHT) - CELL_PADDING; //assign random initial y
-}
+};
 
 
 // Instantiate objects
@@ -223,4 +225,3 @@ var player = new Player();
 
 // Player the goal object in a variable called goal
 var goal = new Goal();
-
